@@ -1,8 +1,5 @@
 ﻿using Projeto_Controle_de_Vendas.br.com.project.view;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projeto_Controle_de_Vendas
