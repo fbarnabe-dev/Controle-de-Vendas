@@ -3,6 +3,7 @@ using Projeto_Controle_de_Vendas.br.com.project.conection;
 using Projeto_Controle_de_Vendas.br.com.project.model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,11 +56,39 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
             }
         }
 
+        // Metodo ListarClientes
+        public DataTable ListarClientes()
+        {
+            try
+            {
+                 // Criar o DataTable e o cmd sql
+                 DataTable tabelacliente = new DataTable();
+                 string sql = "select * from tb_clientes";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                // Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                return tabelacliente;
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando SQL: " + erro);
+                return null;
+            }
+        }
+
         // Metodo AlterarCliente
 
         // Metodo ExcluirCliente
 
-        // Metodo ListarClientes
+
 
         // Metodo BuscarClientePorCpf
     }

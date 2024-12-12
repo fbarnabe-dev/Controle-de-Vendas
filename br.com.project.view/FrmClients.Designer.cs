@@ -424,6 +424,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.Gainsboro;
             this.tabPage2.Controls.Add(this.tabelaCliente);
             this.tabPage2.Controls.Add(this.btnpesquisar);
             this.tabPage2.Controls.Add(this.txtpesquisa);
@@ -434,7 +435,6 @@
             this.tabPage2.Size = new System.Drawing.Size(887, 274);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consulta";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabelaCliente
             // 
@@ -539,6 +539,7 @@
             this.Name = "FrmClients";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Clientes";
+            this.Load += new System.EventHandler(this.FrmClients_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabClientes.ResumeLayout(false);

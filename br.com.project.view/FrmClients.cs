@@ -46,5 +46,12 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
         {
 
         }
+
+        private void FrmClients_Load(object sender, EventArgs e)
+        {
+            ClienteDAO dao = new ClienteDAO();
+            tabelaCliente.DataSource = dao.ListarClientes();
+            
+        }
     }
 }
