@@ -61,14 +61,14 @@
             this.txtcodigo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabelaCliente = new System.Windows.Forms.DataGridView();
+            this.btnpesquisar = new System.Windows.Forms.Button();
+            this.txtpesquisa = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.btnnovo = new System.Windows.Forms.Button();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
-            this.txtpesquisa = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnpesquisar = new System.Windows.Forms.Button();
-            this.tabelaCliente = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -269,6 +269,7 @@
             this.txtendereco.Name = "txtendereco";
             this.txtendereco.Size = new System.Drawing.Size(304, 23);
             this.txtendereco.TabIndex = 17;
+            this.txtendereco.TextChanged += new System.EventHandler(this.txtendereco_TextChanged);
             // 
             // label10
             // 
@@ -435,6 +436,46 @@
             this.tabPage2.Text = "Consulta";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // tabelaCliente
+            // 
+            this.tabelaCliente.AllowUserToAddRows = false;
+            this.tabelaCliente.AllowUserToDeleteRows = false;
+            this.tabelaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tabelaCliente.Location = new System.Drawing.Point(12, 62);
+            this.tabelaCliente.Name = "tabelaCliente";
+            this.tabelaCliente.ReadOnly = true;
+            this.tabelaCliente.Size = new System.Drawing.Size(867, 206);
+            this.tabelaCliente.TabIndex = 7;
+            // 
+            // btnpesquisar
+            // 
+            this.btnpesquisar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnpesquisar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnpesquisar.ForeColor = System.Drawing.Color.White;
+            this.btnpesquisar.Location = new System.Drawing.Point(278, 15);
+            this.btnpesquisar.Name = "btnpesquisar";
+            this.btnpesquisar.Size = new System.Drawing.Size(119, 34);
+            this.btnpesquisar.TabIndex = 6;
+            this.btnpesquisar.Text = "Pesquisar";
+            this.btnpesquisar.UseVisualStyleBackColor = false;
+            // 
+            // txtpesquisa
+            // 
+            this.txtpesquisa.Location = new System.Drawing.Point(76, 19);
+            this.txtpesquisa.Name = "txtpesquisa";
+            this.txtpesquisa.Size = new System.Drawing.Size(196, 27);
+            this.txtpesquisa.TabIndex = 5;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label16.Location = new System.Drawing.Point(8, 22);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(61, 21);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Nome:";
+            // 
             // btnnovo
             // 
             this.btnnovo.BackColor = System.Drawing.SystemColors.Highlight;
@@ -444,7 +485,7 @@
             this.btnnovo.Name = "btnnovo";
             this.btnnovo.Size = new System.Drawing.Size(119, 42);
             this.btnnovo.TabIndex = 2;
-            this.btnnovo.Text = "Novo:";
+            this.btnnovo.Text = "Novo";
             this.btnnovo.UseVisualStyleBackColor = false;
             // 
             // btnsalvar
@@ -483,46 +524,6 @@
             this.btneditar.TabIndex = 5;
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
-            // 
-            // txtpesquisa
-            // 
-            this.txtpesquisa.Location = new System.Drawing.Point(76, 19);
-            this.txtpesquisa.Name = "txtpesquisa";
-            this.txtpesquisa.Size = new System.Drawing.Size(196, 27);
-            this.txtpesquisa.TabIndex = 5;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label16.Location = new System.Drawing.Point(8, 22);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(61, 21);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Nome:";
-            // 
-            // btnpesquisar
-            // 
-            this.btnpesquisar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnpesquisar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpesquisar.ForeColor = System.Drawing.Color.White;
-            this.btnpesquisar.Location = new System.Drawing.Point(278, 15);
-            this.btnpesquisar.Name = "btnpesquisar";
-            this.btnpesquisar.Size = new System.Drawing.Size(119, 34);
-            this.btnpesquisar.TabIndex = 6;
-            this.btnpesquisar.Text = "Pesquisar";
-            this.btnpesquisar.UseVisualStyleBackColor = false;
-            // 
-            // tabelaCliente
-            // 
-            this.tabelaCliente.AllowUserToAddRows = false;
-            this.tabelaCliente.AllowUserToDeleteRows = false;
-            this.tabelaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tabelaCliente.Location = new System.Drawing.Point(12, 62);
-            this.tabelaCliente.Name = "tabelaCliente";
-            this.tabelaCliente.ReadOnly = true;
-            this.tabelaCliente.Size = new System.Drawing.Size(867, 206);
-            this.tabelaCliente.TabIndex = 7;
             // 
             // FrmClients
             // 

@@ -25,8 +25,8 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
         {
             try
             {
-                string sql = @"insert into tb_clientes (nome,rg,cpf,email,telefone,celular,endereco,numero,complemento,bairro,cidade,estado)
-                                values (@nome, @rg, @cpf, @email, @telefone, @celular, @endereco, @numero, @complemento, @bairro, @cidade, @estado)";
+                string sql = @"insert into tb_clientes (nome,rg,cpf,email,telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado)
+                                values (@nome, @rg, @cpf, @email, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @cidade, @estado)";
 
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
                 executacmd.Parameters.AddWithValue("@nome", obj.nome);
@@ -35,6 +35,7 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
                 executacmd.Parameters.AddWithValue("@email", obj.email);
                 executacmd.Parameters.AddWithValue("@telefone", obj.telefone);
                 executacmd.Parameters.AddWithValue("@celular", obj.celular);
+                executacmd.Parameters.AddWithValue("@cep", obj.cep);
                 executacmd.Parameters.AddWithValue("@endereco", obj.endereco);
                 executacmd.Parameters.AddWithValue("@numero", obj.numero);
                 executacmd.Parameters.AddWithValue("@complemento", obj.complemento);

@@ -13,7 +13,7 @@ namespace Projeto_Controle_de_Vendas.br.com.project.model
         public string celular { get; set; }
         public string cep { get; set; }
         public string endereco { get; set; }
-        public string numero { get; set; }
+        public int numero { get; set; }
         public string complemento { get; set; }
         public string bairro { get; set; }
         public string cidade { get; set; }
