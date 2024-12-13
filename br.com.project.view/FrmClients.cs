@@ -131,12 +131,32 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
         private void btnpesquisar_Click(object sender, EventArgs e)
         {
             // Botao Pesquisar
-
             string nome = txtpesquisa.Text;
 
             ClienteDAO dao = new ClienteDAO();
 
             tabelaCliente.DataSource = dao.BuscarClientesPorNome(nome);
+
+            if(tabelaCliente.Rows.Count > 0 )
+            {
+                // Recarregar o DataGridView
+                tabelaCliente.DataSource = dao.ListarClientes();
+            }
+        }
+
+        private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string nome = "%" + txtpesquisa.Text + "%";
+
+            ClienteDAO dao = new ClienteDAO();
+
+            tabelaCliente.DataSource = dao.ListarClientesPorNome(nome);
+
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
