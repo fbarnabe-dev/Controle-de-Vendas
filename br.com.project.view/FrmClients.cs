@@ -127,5 +127,16 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
             // Recarregar o DataGridView
             tabelaCliente.DataSource = dao.ListarClientes();
         }
+
+        private void btnpesquisar_Click(object sender, EventArgs e)
+        {
+            // Botao Pesquisar
+
+            string nome = txtpesquisa.Text;
+
+            ClienteDAO dao = new ClienteDAO();
+
+            tabelaCliente.DataSource = dao.BuscarClientesPorNome(nome);
+        }
     }
 }

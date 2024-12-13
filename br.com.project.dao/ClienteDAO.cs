@@ -157,10 +157,39 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
 
                 MessageBox.Show("Aconteceu o erro: " + erro);
 
-               
             }
         }
 
-        // Metodo BuscarClientePorCpf
+        // Metodo BuscarClientePorNome
+        public DataTable BuscarClientesPorNome(string nome)
+        {
+            try
+            {
+                // Criar o DataTable e o cmd sql
+                DataTable tabelacliente = new DataTable();
+                string sql = "select * from tb_clientes where nome=@nome";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                // Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                // Fechar a conexao com o DB
+                conexao.Close();
+
+                return tabelacliente;
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando SQL: " + erro);
+                return null;
+            }
+        }
     }
 }
