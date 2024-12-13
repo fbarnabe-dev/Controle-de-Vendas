@@ -89,11 +89,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(51, 34);
+            this.label1.Location = new System.Drawing.Point(307, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(225, 24);
+            this.label1.Size = new System.Drawing.Size(313, 36);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cadastro de Clientes";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -435,6 +435,7 @@
             this.tabPage2.Size = new System.Drawing.Size(887, 274);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consulta";
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabelaCliente
             // 
@@ -446,6 +447,7 @@
             this.tabelaCliente.ReadOnly = true;
             this.tabelaCliente.Size = new System.Drawing.Size(867, 206);
             this.tabelaCliente.TabIndex = 7;
+            this.tabelaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaCliente_CellClick);
             // 
             // btnpesquisar
             // 
@@ -512,6 +514,7 @@
             this.btnexcluir.TabIndex = 4;
             this.btnexcluir.Text = "Excluir";
             this.btnexcluir.UseVisualStyleBackColor = false;
+            this.btnexcluir.Click += new System.EventHandler(this.btnexcluir_Click);
             // 
             // btneditar
             // 
@@ -524,6 +527,7 @@
             this.btneditar.TabIndex = 5;
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // FrmClients
             // 

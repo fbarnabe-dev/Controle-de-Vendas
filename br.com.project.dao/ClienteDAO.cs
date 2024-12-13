@@ -47,6 +47,9 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente cadastrado com sucesso!");
+
+                // Fechar a conexao com o DB
+                conexao.Close();
             }
             catch (Exception erro)
             {
@@ -72,6 +75,9 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
                 // Criar o MySQLDataApter para preencher os dados no DataTable;
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
                 da.Fill(tabelacliente);
+
+                // Fechar a conexao com o DB
+                conexao.Close();
 
                 return tabelacliente;
             }
@@ -114,6 +120,9 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente alterado com sucesso!");
+
+                // Fechar a conexao com o DB
+                conexao.Close();
             }
             catch (Exception erro)
             {
@@ -139,11 +148,16 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente excluído com sucesso!");
+
+                // Fechar a conexao com o DB
+                conexao.Close();
             }
             catch (Exception erro)
             {
 
                 MessageBox.Show("Aconteceu o erro: " + erro);
+
+               
             }
         }
 
