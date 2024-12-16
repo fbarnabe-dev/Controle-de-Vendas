@@ -57,5 +57,56 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
             FuncionarioDAO dao = new FuncionarioDAO();
             tabelaFuncionario.DataSource = dao.listarFuncionarios();
         }
+
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+            // Botao Excluir
+            Funcionario obj = new Funcionario();
+
+            // Pegar o codigo
+            obj.codigo = int.Parse(txtcodigo.Text);
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.excluirFuncionario(obj);
+
+            // Recarregar o DataGridView
+            tabelaFuncionario.DataSource = dao.listarFuncionarios();
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            // Recebe os dados dentro do objeto modelo de funcionario
+            Funcionario obj = new Funcionario();
+
+            obj.nome = txtnome.Text;
+            obj.rg = txtrg.Text;
+            obj.cpf = txtcpf.Text;
+            obj.email = txtemail.Text;
+            obj.senha = txtsenha.Text;
+            obj.cargo = cbcargo.Text;
+            obj.nivel_acesso = cbnivel.SelectedItem.ToString();
+            obj.telefone = txttelefone.Text;
+            obj.celular = txtcelular.Text;
+            obj.cep = txtcep.Text;
+            obj.endereco = txtendereco.Text;
+            obj.numero = int.Parse(txtnumero.Text);
+            obj.complemento = txtcomplemento.Text;
+            obj.bairro = txtbairro.Text;
+            obj.cidade = txtcidade.Text;
+            obj.estado = txtuf.Text;
+            obj.codigo = int.Parse(txtcodigo.Text);
+
+            // Criar um objeto da classe ClienteDAO e chamar o metodo alterarFuncionario
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.alterarFuncionario(obj);
+
+            // Recarregar o DataGridView
+            tabelaFuncionario.DataSource = dao.listarFuncionarios();
+        }
+
+        private void btnnovo_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
+        }
     }
 }
