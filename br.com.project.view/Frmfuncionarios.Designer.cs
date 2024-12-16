@@ -536,6 +536,7 @@
             this.btnsalvar.TabIndex = 7;
             this.btnsalvar.Text = "Salvar";
             this.btnsalvar.UseVisualStyleBackColor = false;
+            this.btnsalvar.Click += new System.EventHandler(this.btnsalvar_Click);
             // 
             // btnnovo
             // 
