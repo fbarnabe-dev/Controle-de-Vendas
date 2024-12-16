@@ -178,11 +178,16 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
                 txtcomplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
                 txtuf.Text = dados.Tables[0].Rows[0]["uf"].ToString();
             }
-            catch (Exception erro)
+            catch (Exception)
             {
 
-                MessageBox.Show("Endereço não encontrado, por favor digite manualmente." + erro);
+                MessageBox.Show("Endereço não encontrado, por favor digite manualmente.");
             }
+        }
+
+        private void btnnovo_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
         }
     }
 }

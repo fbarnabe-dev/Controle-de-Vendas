@@ -494,6 +494,7 @@
             this.btnnovo.TabIndex = 2;
             this.btnnovo.Text = "Novo";
             this.btnnovo.UseVisualStyleBackColor = false;
+            this.btnnovo.Click += new System.EventHandler(this.btnnovo_Click);
             // 
             // btnsalvar
             // 
