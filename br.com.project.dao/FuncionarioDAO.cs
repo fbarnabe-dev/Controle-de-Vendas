@@ -3,6 +3,7 @@ using Projeto_Controle_de_Vendas.br.com.project.conection;
 using Projeto_Controle_de_Vendas.br.com.project.model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
         {
             this.conexao = new ConnectionFactory().GetConnection();
         }
-        #region Cadastrar Funcionario
+        #region Método Cadastrar Funcionario
         public void cadastrarFuncionario(Funcionario obj)
         {
             try
@@ -59,6 +60,39 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
             {
 
                 MessageBox.Show("Aconteceu o erro: " + erro);
+            }
+        }
+
+        #endregion
+
+        #region Método Listar Funcionario
+        public DataTable listarFuncionarios()
+        {
+            try
+            {
+                // Criar o DataTable e o cmd sql
+                DataTable tabelafuncionario = new DataTable();
+                string sql = "select * from tb_funcionarios";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                // Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelafuncionario);
+
+                // Fechar a conexao com o DB
+                conexao.Close();
+
+                return tabelafuncionario;
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando Sql: " + erro);
+                return null;
             }
         }
 
