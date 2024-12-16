@@ -1,6 +1,7 @@
 ﻿using Projeto_Controle_de_Vendas.br.com.project.dao;
 using Projeto_Controle_de_Vendas.br.com.project.model;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Projeto_Controle_de_Vendas.br.com.project.view
@@ -157,6 +158,31 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
         private void txtpesquisa_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            // Botao consultar cep
+            try
+            {
+                string cep = txtcep.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
+
+                DataSet dados = new DataSet();
+
+                dados.ReadXml(xml);
+
+                txtendereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtbairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtcidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                txtcomplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
+                txtuf.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Endereço não encontrado, por favor digite manualmente." + erro);
+            }
         }
     }
 }
