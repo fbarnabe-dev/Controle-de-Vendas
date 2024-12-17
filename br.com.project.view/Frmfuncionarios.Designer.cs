@@ -30,8 +30,14 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.tabClientes = new System.Windows.Forms.TabControl();
+            this.tabFuncionarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbnivel = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbcargo = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtsenha = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.txtuf = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -70,14 +76,8 @@
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnnovo = new System.Windows.Forms.Button();
-            this.txtsenha = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbcargo = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.cbnivel = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tabClientes.SuspendLayout();
+            this.tabFuncionarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaFuncionario)).BeginInit();
@@ -105,16 +105,16 @@
             this.label1.Text = "Cadastro de Funcionários";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // tabClientes
+            // tabFuncionarios
             // 
-            this.tabClientes.Controls.Add(this.tabPage1);
-            this.tabClientes.Controls.Add(this.tabPage2);
-            this.tabClientes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabClientes.Location = new System.Drawing.Point(0, 99);
-            this.tabClientes.Name = "tabClientes";
-            this.tabClientes.SelectedIndex = 0;
-            this.tabClientes.Size = new System.Drawing.Size(895, 315);
-            this.tabClientes.TabIndex = 2;
+            this.tabFuncionarios.Controls.Add(this.tabPage1);
+            this.tabFuncionarios.Controls.Add(this.tabPage2);
+            this.tabFuncionarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabFuncionarios.Location = new System.Drawing.Point(0, 99);
+            this.tabFuncionarios.Name = "tabFuncionarios";
+            this.tabFuncionarios.SelectedIndex = 0;
+            this.tabFuncionarios.Size = new System.Drawing.Size(895, 315);
+            this.tabFuncionarios.TabIndex = 2;
             // 
             // tabPage1
             // 
@@ -162,6 +162,67 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Pessoais";
             // 
+            // cbnivel
+            // 
+            this.cbnivel.FormattingEnabled = true;
+            this.cbnivel.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuário"});
+            this.cbnivel.Location = new System.Drawing.Point(514, 165);
+            this.cbnivel.Name = "cbnivel";
+            this.cbnivel.Size = new System.Drawing.Size(123, 25);
+            this.cbnivel.TabIndex = 33;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label19.Location = new System.Drawing.Point(464, 168);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 17);
+            this.label19.TabIndex = 32;
+            this.label19.Text = "Nível:";
+            // 
+            // cbcargo
+            // 
+            this.cbcargo.FormattingEnabled = true;
+            this.cbcargo.Items.AddRange(new object[] {
+            "Gerente",
+            "Vendedor",
+            "Estagiário"});
+            this.cbcargo.Location = new System.Drawing.Point(330, 165);
+            this.cbcargo.Name = "cbcargo";
+            this.cbcargo.Size = new System.Drawing.Size(123, 25);
+            this.cbcargo.TabIndex = 31;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label18.Location = new System.Drawing.Point(270, 168);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(54, 17);
+            this.label18.TabIndex = 30;
+            this.label18.Text = "Cargo:";
+            // 
+            // txtsenha
+            // 
+            this.txtsenha.Location = new System.Drawing.Point(66, 165);
+            this.txtsenha.Name = "txtsenha";
+            this.txtsenha.PasswordChar = '*';
+            this.txtsenha.Size = new System.Drawing.Size(188, 23);
+            this.txtsenha.TabIndex = 29;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label17.Location = new System.Drawing.Point(9, 168);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(51, 17);
+            this.label17.TabIndex = 28;
+            this.label17.Text = "Senha:";
+            // 
             // btnbuscar
             // 
             this.btnbuscar.BackColor = System.Drawing.SystemColors.Highlight;
@@ -173,6 +234,7 @@
             this.btnbuscar.TabIndex = 6;
             this.btnbuscar.Text = "Pesquisar";
             this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // txtuf
             // 
@@ -470,6 +532,7 @@
             this.tabelaFuncionario.ReadOnly = true;
             this.tabelaFuncionario.Size = new System.Drawing.Size(867, 206);
             this.tabelaFuncionario.TabIndex = 7;
+            this.tabelaFuncionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaFuncionario_CellClick);
             // 
             // btnpesquisar
             // 
@@ -553,67 +616,6 @@
             this.btnnovo.UseVisualStyleBackColor = false;
             this.btnnovo.Click += new System.EventHandler(this.btnnovo_Click);
             // 
-            // txtsenha
-            // 
-            this.txtsenha.Location = new System.Drawing.Point(66, 165);
-            this.txtsenha.Name = "txtsenha";
-            this.txtsenha.PasswordChar = '*';
-            this.txtsenha.Size = new System.Drawing.Size(188, 23);
-            this.txtsenha.TabIndex = 29;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label17.Location = new System.Drawing.Point(9, 168);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(51, 17);
-            this.label17.TabIndex = 28;
-            this.label17.Text = "Senha:";
-            // 
-            // cbcargo
-            // 
-            this.cbcargo.FormattingEnabled = true;
-            this.cbcargo.Items.AddRange(new object[] {
-            "Gerente",
-            "Vendedor",
-            "Estagiário"});
-            this.cbcargo.Location = new System.Drawing.Point(330, 165);
-            this.cbcargo.Name = "cbcargo";
-            this.cbcargo.Size = new System.Drawing.Size(123, 25);
-            this.cbcargo.TabIndex = 31;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label18.Location = new System.Drawing.Point(270, 168);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(54, 17);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Cargo:";
-            // 
-            // cbnivel
-            // 
-            this.cbnivel.FormattingEnabled = true;
-            this.cbnivel.Items.AddRange(new object[] {
-            "Administrador",
-            "Usuário"});
-            this.cbnivel.Location = new System.Drawing.Point(514, 165);
-            this.cbnivel.Name = "cbnivel";
-            this.cbnivel.Size = new System.Drawing.Size(123, 25);
-            this.cbnivel.TabIndex = 33;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label19.Location = new System.Drawing.Point(464, 168);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(44, 17);
-            this.label19.TabIndex = 32;
-            this.label19.Text = "Nível:";
-            // 
             // Frmfuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -623,14 +625,14 @@
             this.Controls.Add(this.btnexcluir);
             this.Controls.Add(this.btnsalvar);
             this.Controls.Add(this.btnnovo);
-            this.Controls.Add(this.tabClientes);
+            this.Controls.Add(this.tabFuncionarios);
             this.Controls.Add(this.panel1);
             this.Name = "Frmfuncionarios";
             this.Text = "Cadastro de Funcionários";
             this.Load += new System.EventHandler(this.Frmfuncionarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabClientes.ResumeLayout(false);
+            this.tabFuncionarios.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -644,7 +646,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabClientes;
+        private System.Windows.Forms.TabControl tabFuncionarios;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.ComboBox txtuf;
