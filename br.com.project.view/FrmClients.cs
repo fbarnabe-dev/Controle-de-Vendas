@@ -87,17 +87,39 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
 
         private void btnexcluir_Click(object sender, EventArgs e)
         {
-            // Botao Excluir
-            Cliente obj = new Cliente();
+            // Exibir mensagem de confirmação
+            DialogResult confirmacao = MessageBox.Show(
+                "Tem certeza que deseja excluir este cliente?",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
 
-            // Pegar o codigo
-            obj.codigo = int.Parse(txtcodigo.Text);
+            // Verificar se o usuário clicou em "Sim"
+            if (confirmacao == DialogResult.Yes)
+            {
+                Cliente obj = new Cliente();
 
-            ClienteDAO dao = new ClienteDAO();
-            dao.excluirCliente(obj);
+                // Pegar o código do cliente
+                obj.codigo = int.Parse(txtcodigo.Text);
 
-            // Recarregar o DataGridView
-            tabelaCliente.DataSource = dao.ListarClientes();
+                ClienteDAO dao = new ClienteDAO();
+                dao.excluirCliente(obj);
+
+                // Recarregar o DataGridView
+                tabelaCliente.DataSource = dao.ListarClientes();
+
+                // Limpar o formulário após a exclusão
+                new Helpers().LimparTela(this);
+
+                // Mensagem de sucesso
+                MessageBox.Show("Cliente excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Caso o usuário clique em "Não"
+                MessageBox.Show("Exclusão cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btneditar_Click(object sender, EventArgs e)

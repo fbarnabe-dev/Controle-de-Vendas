@@ -76,20 +76,39 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
 
         private void btnexcluir_Click(object sender, EventArgs e)
         {
-            // Botao Excluir
-            Funcionario obj = new Funcionario();
+            // Exibir mensagem de confirmação
+            DialogResult confirmacao = MessageBox.Show(
+                "Tem certeza que deseja excluir este funcionário?",
+                "Confirmação de Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
 
-            // Pegar o codigo
-            obj.codigo = int.Parse(txtcodigo.Text);
+            // Verificar se o usuário clicou em "Sim"
+            if (confirmacao == DialogResult.Yes)
+            {
+                Funcionario obj = new Funcionario();
 
-            FuncionarioDAO dao = new FuncionarioDAO();
-            dao.excluirFuncionario(obj);
+                // Pegar o código do funcionário
+                obj.codigo = int.Parse(txtcodigo.Text);
 
-            // Recarregar o DataGridView
-            tabelaFuncionario.DataSource = dao.listarFuncionarios();
+                FuncionarioDAO dao = new FuncionarioDAO();
+                dao.excluirFuncionario(obj);
 
-            // Limpar o formulario apos a exclusao
-            new Helpers().LimparTela(this);
+                // Recarregar o DataGridView
+                tabelaFuncionario.DataSource = dao.listarFuncionarios();
+
+                // Limpar o formulário após a exclusão
+                new Helpers().LimparTela(this);
+
+                // Mensagem de sucesso
+                MessageBox.Show("Funcionário excluído com sucesso!", "Exclusão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                // Caso o usuário clique em "Não"
+                MessageBox.Show("Exclusão cancelada.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
