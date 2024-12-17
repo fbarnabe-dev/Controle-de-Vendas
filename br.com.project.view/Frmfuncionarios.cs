@@ -21,7 +21,20 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
 
         private void btnpesquisar_Click(object sender, EventArgs e)
         {
+            // Botao Pesquisar
+            string nome = txtpesquisa.Text;
 
+            FuncionarioDAO dao = new FuncionarioDAO();
+
+            tabelaFuncionario.DataSource = dao.BuscarFuncionariosPorNome(nome);
+
+            if (tabelaFuncionario.Rows.Count == 0 || txtpesquisa.Text == string.Empty)
+            {
+                MessageBox.Show("Funcionário não encontrado!");
+
+                // Recarregar o DataGridView
+                tabelaFuncionario.DataSource = dao.listarFuncionarios();
+            }
         }
 
         private void btnsalvar_Click(object sender, EventArgs e)
@@ -164,6 +177,20 @@ namespace Projeto_Controle_de_Vendas.br.com.project.view
 
             // Alterar para a guia Dados Pessoais
             tabFuncionarios.SelectedTab = tabPage1;
+        }
+
+        private void txtpesquisa_TextChanged(object sender, EventArgs e)
+        {
+            string nome = "%" + txtpesquisa.Text + "%";
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+
+            tabelaFuncionario.DataSource = dao.ListarFuncionariosPorNome(nome);
+        }
+
+        private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }

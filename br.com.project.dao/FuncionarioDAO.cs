@@ -171,5 +171,72 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
         }
 
         #endregion
+
+        #region Método Buscar Funcionarios Por Nome
+        public DataTable BuscarFuncionariosPorNome(string nome)
+        {
+            try
+            {
+                // Criar o DataTable e o cmd sql
+                DataTable tabelaFuncionario = new DataTable();
+                string sql = "select * from tb_funcionarios where nome=@nome";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                // Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelaFuncionario);
+
+                // Fechar a conexao com o DB
+                conexao.Close();
+
+                return tabelaFuncionario;
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando SQL: " + erro);
+                return null;
+            }
+        }
+        #endregion
+
+        #region Método Listar Funcionarios Por Nome
+        public DataTable ListarFuncionariosPorNome(string nome)
+        {
+            try
+            {
+                // Criar o DataTable e o cmd sql
+                DataTable tabelaFuncionario = new DataTable();
+                string sql = "select * from tb_funcionarios where nome like @nome";
+
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+                executacmd.ExecuteNonQuery();
+
+                // Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelaFuncionario);
+
+                // Fechar a conexao com o DB
+                conexao.Close();
+
+                return tabelaFuncionario;
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Erro ao executar o comando SQL: " + erro);
+                return null;
+            }
+        }
+
+        #endregion
     }
 }

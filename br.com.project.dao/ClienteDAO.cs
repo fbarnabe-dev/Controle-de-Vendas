@@ -192,7 +192,7 @@ namespace Projeto_Controle_de_Vendas.br.com.project.dao
             }
         }
 
-        // Metodo BuscarClientePorNome
+        // Metodo ListarClientePorNome
         public DataTable ListarClientesPorNome(string nome)
         {
             try
